@@ -1,0 +1,22 @@
+<ion-card (swipe)="swipe($event)" @fade [@tinderSwipe]="swipeType" (@tinderSwipe.done)="handleDone( $event )">
+    <img [src]="drink.strDrinkThumb" />
+    <ion-card-content>
+        <ion-card-title>
+            {{drink.strDrink}}
+        </ion-card-title>
+    </ion-card-content>
+
+    <ion-row class="row" no-padding="" text-center>
+        <ion-col class="col">
+            <button ion-button icon-only clear color="dark" (click)="skip(drink)">
+                <ion-icon name="close"></ion-icon>
+              </button>
+        </ion-col>
+        <ion-col class="col">
+            <button ion-button icon-only clear (click)="love(drink)">
+                <ion-icon name="heart"></ion-icon>
+              </button>
+        </ion-col>
+    </ion-row>
+
+</ion-card>

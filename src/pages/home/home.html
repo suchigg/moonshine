@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Moonshine
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <tinder-card *ngIf="loaded" [drink]="actualDrink" (onCoctailLoved)=coctailWasLoved($event) (onCoctailDiscarded)=coctailWasDiscarded($event)></tinder-card>
+</ion-content>
