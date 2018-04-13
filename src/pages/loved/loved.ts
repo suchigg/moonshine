@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CocktailsProvider } from '../../providers/cocktails/cocktails';
 import { Drink } from '../../models/drink';
-import { listItem } from '../../animations/animations';
 
 /**
  * Generated class for the LovedPage page.
