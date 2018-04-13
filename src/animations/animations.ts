@@ -1,6 +1,18 @@
 import { trigger, state, transition, style, animate } from '@angular/animations';
 
 
+export  let listItem = trigger('listItem', [
+
+  transition('void => *', [
+    style({ opacity: 0 }),
+    animate(1000)
+  ]),
+
+  transition('* => void', [
+    animate(2000, style({ opacity: 0 }))
+  ])
+]);
+
 export  let fade = trigger('fade', [
 
   state('void', style({ opacity: 0 })),

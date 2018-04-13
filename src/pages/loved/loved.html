@@ -5,14 +5,52 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>loved</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle icon-only>
+          <ion-icon name='menu'></ion-icon>
+        </button>
+        <ion-title>loved</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <div class="message" *ngIf="!hasFavorites()" text-center>
+        <span class="sad">
+            <ion-icon name="sad"></ion-icon>
+        </span>
+        <p>Uff, pare che tu non abbia ancora trovato nulla di tuo gradimento</p>
+    </div>
+
+
+    <ion-refresher *ngIf="hasFavorites()" (ionRefresh)="refreshFavorites($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+
+    <ion-list>
+        <ion-item-sliding *ngFor="let favorite of favorites">
+            <ion-item>
+                <ion-avatar item-start>
+                    <img [src]="favorite.strDrinkThumb">
+                </ion-avatar>
+                <h2>{{favorite.strDrink}}</h2>
+                <p>{{favorite.strCategory}}</p>
+            </ion-item>
+
+            <ion-item-options side="right">
+                <button ion-button icon-only color="danger" (click)=removeFavorite(favorite)>
+                  <ion-icon name="trash"></ion-icon>              
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
 
 </ion-content>
+
+<ion-footer padding>
+
+    <p><strong>Attenzione:</strong> Bevi sempre responsabilmente.</p>
+
+</ion-footer>

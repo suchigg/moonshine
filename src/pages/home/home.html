@@ -1,5 +1,9 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle icon-only>
+            <ion-icon name='menu'></ion-icon>
+        </button>
+
         <ion-title>
             Moonshine
         </ion-title>
@@ -7,5 +11,23 @@
 </ion-header>
 
 <ion-content padding>
+    <section *ngIf="noConnection" class="no-connection-error" text-center>
+        <span class="warning">
+            <ion-icon name="warning"></ion-icon>
+        </span>
+        <p>Non posso recuperare niente al momento a perché la connessione non va.</p>
+
+        <button ion-button icon-left large (click)="getRandomCocktail()">
+            <ion-icon name="refresh-circle"></ion-icon>
+            Riprova
+        </button>
+
+    </section>
+
+
     <tinder-card *ngIf="loaded" [drink]="actualDrink" (onCoctailLoved)=coctailWasLoved($event) (onCoctailDiscarded)=coctailWasDiscarded($event)></tinder-card>
 </ion-content>
+
+<ion-footer padding>
+    <p><strong>Attenzione:</strong> Bevi sempre responsabilmente.</p>
+</ion-footer>

@@ -1,3 +1,4 @@
+import {IonicStorageModule} from '@ionic/storage';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { ComponentsModule } from '../components/components.module';
 import { CocktailsProvider } from '../providers/cocktails/cocktails';
 import { HttpClientModule } from '@angular/common/http';
+import { LovedPageModule } from '../pages/loved/loved.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
     ComponentsModule,
-    IonicModule.forRoot(MyApp)
+    LovedPageModule,
+    IonicModule.forRoot(MyApp, {
+      preloadModules: true
+    }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
