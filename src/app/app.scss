@@ -15,3 +15,7 @@
 .main-nav {
     background-color: map-get($colors, dark);
 }
+
+.ios .main-container {
+    padding-top: 20px;
+}
